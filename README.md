@@ -13,7 +13,7 @@
 ## 安装前准备
 
 - 使用支持 Skills 的 Codex。
-- 私有仓库需要当前 GitHub 账号拥有访问权限。先配置 Git 凭据，或使用 GitHub CLI 执行 `gh auth login`、`gh auth setup-git`。不要把令牌写进仓库 URL 或文件。
+- 本仓库公开，查看、下载和安装技能无需登录 GitHub，也无需配置访问令牌。
 - 手动安装需要 Git；使用安装器脚本还需要 Python。
 - 安装的是完整技能文件夹，包括 `SKILL.md`、`agents/` 以及未来可能添加的 `scripts/`、`references/` 等资源。
 
@@ -39,10 +39,10 @@
 ```powershell
 $codexRoot = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME '.codex' }
 $installer = Join-Path $codexRoot 'skills/.system/skill-installer/scripts/install-skill-from-github.py'
-python $installer --repo fadeawaylove/one-more-trick --path skills/gpt6-model-routing --ref main --method git
+python $installer --repo fadeawaylove/one-more-trick --path skills/gpt6-model-routing --ref main --method auto
 ```
 
-该命令要求安装器文件确实存在；找不到时使用方式二。私有仓库的 Git 认证由当前环境处理。
+该命令要求安装器文件确实存在；找不到时使用方式二。安装器会优先直接下载公开仓库，必要时回退到 Git。
 
 ## 方式二：手动安装一个或全部技能
 
