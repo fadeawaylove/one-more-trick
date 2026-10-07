@@ -1,6 +1,6 @@
 interface:
   display_name: "GPT-6 模型路由"
-  short_description: "按任务选择 Luna、Sol 或 Astra"
-  default_prompt: "使用 $gpt6-model-routing：按任务难度选择 GPT-6 Luna、GPT-6.1 Sol 或 GPT-6 Astra，并从 low/medium 起步。"
+  short_description: "按任务选择 Luna、Sol 或 Astra，明确直接执行与委派边界"
+  default_prompt: "使用 $gpt6-model-routing：小而明确的任务由主代理直接完成并自检，实质性任务默认委派并由主代理独立验收；按子任务选择 Luna、Sol 或 Astra，日常从 low/medium 起步。"
 policy:
   allow_implicit_invocation: true
